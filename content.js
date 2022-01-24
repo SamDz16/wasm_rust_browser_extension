@@ -447,17 +447,8 @@ async function init(input) {
 
 // export default init;
 
-
-
 (async () => {
     await init("http://localhost:3000/fetch.wasm")
-
-    // console.log(get_num(3));
-    // console.log(get_string("rust"));
-    // const {results} = await get_data("https://dbpedia.org/sparql", "select distinct ?Concept where {[] a ?Concept} LIMIT 50")
-    // const {bindings} = results
-    // bindings.map(binding => console.log(binding.Concept.value))
-
 	console.log("Wasm is loaded successully!");
 })()
 
@@ -530,8 +521,7 @@ const isFailingAlgorithm = async (e) => {
 		} else {
 			// There is at least one result
 			document.querySelector('#options').innerHTML += `<h1 class="text-center text-success">isFailing returns: <b>${0}</b></h1>`;
-			document.querySelector('#options').innerHTML += `<p class="text-muted text-center">Data Fetched using WebAssembly <b><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="16px" viewBox="0 0 66 65" fill="#fff" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#A" x=".5" y=".5"/><symbol id="A" overflow="visible"><path d="M39.32 0v.345a7.34 7.34 0 0 1-7.338 7.338A7.34 7.34 0 0 1 24.644.345V0H0v64h64V0zm-8.778 57.15l-3.116-15.42h-.054L24 57.15h-4.294L14.84 34.493h4.24l2.902 15.42h.054l3.497-15.42H29.5l3.14 15.6h.054l3.312-15.6h4.163L34.765 57.15zm23.347 0l-1.445-5.043h-7.63l-1.112 5.043h-4.24l5.483-22.657h6.7L58.3 57.15zm-4.607-17.074h-1.784l-1.85 8.314h5.757z" stroke="none" fill="#654ff0" fill-rule="nonzero"/></symbol></svg>
-			</b></p>`;
+			document.querySelector('#options').innerHTML += ` <p class="text-muted text-center"> <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20px" viewBox="0 0 66 65" fill="#fff" fill-rule="evenodd" stroke="#000" stroke-linecap="round" stroke-linejoin="round"><use xlink:href="#A" x=".5" y=".5"/><symbol id="A" overflow="visible"><path d="M39.32 0v.345a7.34 7.34 0 0 1-7.338 7.338A7.34 7.34 0 0 1 24.644.345V0H0v64h64V0zm-8.778 57.15l-3.116-15.42h-.054L24 57.15h-4.294L14.84 34.493h4.24l2.902 15.42h.054l3.497-15.42H29.5l3.14 15.6h.054l3.312-15.6h4.163L34.765 57.15zm23.347 0l-1.445-5.043h-7.63l-1.112 5.043h-4.24l5.483-22.657h6.7L58.3 57.15zm-4.607-17.074h-1.784l-1.85 8.314h5.757z" stroke="none" fill="#654ff0" fill-rule="nonzero"/></symbol></svg>  Data Fetched using WebAssembly <b>&#9989;</b></p>`;
 
 
 			// // Create a div element to contain label and input
@@ -580,7 +570,9 @@ const isFailingAlgorithm = async (e) => {
 
 		}
 	} catch (err) {
-		console.error('Caught exception', err);
+        document.querySelector('#options').innerHTML += `<h1 class="text-center text-danger">isFailing returns: <b>${1}</b></h1>`;
+
+        console.log('HERE IS THE ERRROR', err);
 	}
 };
 
